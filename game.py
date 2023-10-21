@@ -10,6 +10,7 @@ sand_height = 100
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 sand = pygame.image.load("Fishpics/fishTile_021.png")
 weed = pygame.image.load("Fishpics/fishTile_030.png")
+fish = pygame.image.load("Fishpics/fishTile_079.png")
 picwidth= sand.get_width()
 picheight = sand.get_height()
 wh = randint(picheight, 2 * picheight)
@@ -37,6 +38,7 @@ while running:
         screen.blit(sand, (WIDTH-i*picwidth,HEIGHT-picheight))
     screen.blit(weed, (WIDTH - ww, HEIGHT - wh))
     screen.blit(weed, (WIDTH - nww, HEIGHT - nwh))
+    screen.blit(fish, (ww,HEIGHT-2*wh))
 
 
 
