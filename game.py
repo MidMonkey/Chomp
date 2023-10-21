@@ -7,8 +7,7 @@ WIDTH = 800
 HEIGHT = 600
 sand_height = 100
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-sand = pygame.image.load("kenney_fish_pack.zip/Preview.png").convert()
-screen.blit(sand, (200,200,64,64))
+
 background = pygame.Surface((WIDTH, HEIGHT))
 background.fill((52, 140, 235))
 clock = pygame.time.Clock()
