@@ -1,13 +1,13 @@
 import pygame
+import sys
 
 # pygame setup
 pygame.init()
 # Set window resolution
-WIDTH = 800
-HEIGHT = 600
+WIDTH = 1080
+HEIGHT = 720
 sand_height = 100
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-
 background = pygame.Surface((WIDTH, HEIGHT))
 background.fill((52, 140, 235))
 clock = pygame.time.Clock()
@@ -20,8 +20,12 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     # background.fill(50, 20, 255)
-    pygame.draw.rect(background, (204, 179, 129), (0, HEIGHT-sand_height, WIDTH, sand_height))
-    screen.blit(background, (0,0))
+    pygame.draw.rect(background, (204, 179, 129), (0, HEIGHT - sand_height, WIDTH, sand_height))
+    screen.blit(background, (0, 0))
+    sand = pygame.image.load("Fishpics/fishTile_021.png")
+    picwidth= sand.get_width()
+    picheight = sand.get_height()
+    screen.blit(sand, (WIDTH-picwidth,HEIGHT-picheight))
     # pygame.QUIT event means the user clicked X to close your window
     # fill the screen with a color to wipe away anything from last frame
     # flip() the display to put your work on screen
