@@ -1,6 +1,6 @@
 import pygame
 from random import randint
-
+from grenade import Grenade
 # pygame setup
 pygame.init()
 # Set window resolution
@@ -22,11 +22,19 @@ background.fill((52, 140, 235))
 clock = pygame.time.Clock()
 running = True
 dt = 0
+
+
+
 while running:
     # poll for events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_DOWN:
+            grenade_group.add(Grenade(my_boat.rect.midbottom)) \
+        if event.key == pygame.K_SPACE:
+
     # background.fill(50, 20, 255)
     pygame.draw.rect(background, (204, 179, 129), (0, HEIGHT - sand_height, WIDTH, sand_height))
     screen.blit(background, (0, 0))
@@ -36,6 +44,11 @@ while running:
     screen.blit(weed, (WIDTH - nww, HEIGHT - nwh))
     screen.blit(fish, (ww, HEIGHT - 2 * wh))
 
+    # update sprites
+    grenade_group.update
+
+    #draw sprites
+    grenade_group.draw(screen)
 
 
     # pygame.QUIT event means the user clicked X to close your window
@@ -51,6 +64,6 @@ pygame.quit()
 
 # define a class
 # attributes image, rect, velocity
-#methods
-#updade
-#draw(takes screen as argument).
+# methods
+# update
+# draw (takes screen as argument).
