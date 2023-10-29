@@ -26,8 +26,8 @@ nww = randint(0, WIDTH)
 
 # make background
 background = pygame.Surface((WIDTH, HEIGHT))  #  make_background(screen)
-background.fill((52, 140, 235))
-# show title
+background.fill((153, 246, 255))
+# shuow title
 print(pygame.font.get_fonts())
 game_font = pygame.font.SysFont('impact', 110)
 
@@ -39,7 +39,6 @@ boat_group = pygame.sprite.Group()
 
 bomb_boat = Boat(screen)
 boat_group.add(bomb_boat)
-frag = Grenade(screen)
 # describe fish group
 num_fish = 100
 [fish_group.add(Fish(screen)) for i in range(num_fish) ]
@@ -58,16 +57,15 @@ while running:
             if event.key == pygame.K_LEFT:
                 bomb_boat.velocity -= 1
             if event.key == pygame.K_RSHIFT:
-                grenade_group.add(Grenade(bomb_boat))
+                grenade_group.add(Grenade(bomb_boat.rect.center, fish_group, grenade_group))
             if event.key == pygame.K_SPACE:
                 [g.boom() for g in grenade_group]
-
     # update sprites
     fish_group.update()
     grenade_group.update()
     bomb_boat.update()
     # background.fill(50, 20, 255)
-    pygame.draw.rect(background, (204, 179, 129), (0, HEIGHT - sand_height, WIDTH, sand_height))
+    pygame.draw.rect(background, (153, 246, 255), (0, HEIGHT - sand_height, WIDTH, sand_height))
     screen.blit(background, (0, 0))
 
     for i in range(1, 100):
